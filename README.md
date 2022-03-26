@@ -7,6 +7,9 @@ Isso é apenas um exemplo de modificação para a branch principal
 # Alunos
 Matheus
 Jumuel
+Mugi
 Rival
 FuzzyBot
+Obiits
+Gepedo
 Teste muito dos loco
