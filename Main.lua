@@ -55,6 +55,7 @@ function DistruibuicaoDePontos()
             ["Resistencia"] = 1,
             ["Carisma"] = 1
         }
+        local x= 15
 
         print("Atributos totais:\n" .. ConcatenarDic(PontosTemp))
 
@@ -62,37 +63,40 @@ function DistruibuicaoDePontos()
         local VForca = io.read('n');
         local PlaceHolder = io.read()
         PontosTemp["Forca"]= VForca + PontosTemp["Forca"]
-        print('Pontos distribuidos: '.. SomarTable(PontosTemp)-5, '\n')
+        print('Pontos para distribuir: '.. x-SomarTable(PontosTemp), '\n')
 
         io.write('Destreza: ')
         local VDestreza = io.read('n');
         local PlaceHolder = io.read()
         PontosTemp["Destreza"]= VDestreza + PontosTemp["Destreza"]
-        print('Pontos distribuidos: '.. SomarTable(PontosTemp)-5, '\n')
+        print('Pontos para distribuir: '.. x-SomarTable(PontosTemp), '\n')
 
         io.write('Inteligencia: ')
         local VInteligencia = io.read('n');
         local PlaceHolder = io.read()
         PontosTemp["Inteligencia"]= VInteligencia + PontosTemp["Inteligencia"]
-        print('Pontos distribuidos: '.. SomarTable(PontosTemp)-5, '\n')
+        print('Pontos para distribuir: '.. x-SomarTable(PontosTemp), '\n')
 
         io.write('Resistencia: ')
         local VResistencia = io.read('n');
         local PlaceHolder = io.read()
         PontosTemp["Resistencia"]= VResistencia + PontosTemp["Resistencia"]
-        print('Pontos distribuidos: '.. SomarTable(PontosTemp)-5, '\n')
+        print('Pontos para distribuir: '.. x-SomarTable(PontosTemp), '\n')
 
         io.write('Carisma: ')
         local VCarisma = io.read('n');
         local PlaceHolder = io.read()
         PontosTemp["Carisma"]= VCarisma + PontosTemp["Carisma"]
-        print('Pontos distribuidos: '.. SomarTable(PontosTemp)-5, '\n')
+        print('Pontos para distribuir: '.. x-SomarTable(PontosTemp), '\n')
 
         if SomarTable(PontosTemp) == 15 then 
             print('Pontos distribuidos com sucesso\n' .. ConcatenarDic(PontosTemp))
         else 
             print(Erros[1], ' \n'); DistruibuicaoDePontos() 
         end
+
+        print('Deseja redistribuir os pontos? [Sim] [Nao]'); local redistribuicao = string.lower(io.read('l'))
+        if redistribuicao == 'sim' then DistruibuicaoDePontos() end
 
         Personagem['Atributos']["Forca"]= PontosTemp["Forca"]
         Personagem['Atributos']["Destreza"]= PontosTemp["VDestreza"]
@@ -102,6 +106,8 @@ function DistruibuicaoDePontos()
 end
 
 DistruibuicaoDePontos()
---? Distribuição de pontos define a classe do personagem
+
+--[[ --? Distribuição de pontos define a classe do personagem
 io.write("Classe: ");
 Personagem["Classe"] = io.read("l")
+]]
