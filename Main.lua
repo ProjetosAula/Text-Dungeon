@@ -1,3 +1,4 @@
+-- Table infos personagem
 local Personagem = {
     ["Nome"] = nil,
     ["Genero"] = nil,
@@ -5,14 +6,17 @@ local Personagem = {
     ["Classe"] = nil,
     ["Equipamentos"] = {},
     ["Atributos"] = {
-        ["Forca"] = 0,
-        ["Destreza"] = 0,
-        ["Inteligencia"] = 0,
-        ["Resistencia"] = 0,
-        ["Carisma"] = 0
+        -- Usar 1 como valor base pro sistema.
+        ["Forca"] = 1,
+        ["Destreza"] = 1,
+        ["Inteligencia"] = 1,
+        ["Resistencia"] = 1,
+        ["Carisma"] = 1
     }
 }
-
+local Erros = {
+    [1]= 'Por favor distribua 10 pontos no total'
+}
 -- Criação de personagem
 
 print("Crie seu personagem:")
@@ -22,8 +26,6 @@ io.write("Genero: ")
 Personagem["Genero"] = io.read("l")
 io.write("Raca: ")
 Personagem["Raca"] = io.read("l")
-io.write("Classe: ")
-Personagem["Classe"] = io.read("l")
 
 -- Distribuição de pontos
 
@@ -31,7 +33,7 @@ print("Distribua um total de 10 pontos para os atributos")
 
 function SomarTable(Table)
     local SomaTotal = 0
-    for _, Valor in pairs(Table) do
+    for Nome, Valor in pairs(Table) do
         SomaTotal = SomaTotal + Valor
     end
     return SomaTotal
@@ -45,14 +47,61 @@ function ConcatenarDic(Table)
     return TextoFinal
 end
 
-while SomarTable(Personagem["Atributos"]) ~= 10 do
-    io.write("Forca: ")
-    local ForcaColocar = io.read("n")
-    local Placeholder = io.read("l")
-    if SomarTable(Personagem["Atributos"]) + ForcaColocar > 10 then
-        print("O numero total de atributo deve ser igual a 10.")
-    else
-        Personagem["Atributos"]["Forca"] = Personagem["Atributos"]["Forca"] + ForcaColocar
-    end
-    print("Atributos totais:\n" .. ConcatenarDic(Personagem["Atributos"]))
+function DistruibuicaoDePontos()
+        local PontosTemp = {
+            ["Forca"] = 1,
+            ["Destreza"] = 1,
+            ["Inteligencia"] = 1,
+            ["Resistencia"] = 1,
+            ["Carisma"] = 1
+        }
+
+        print("Atributos totais:\n" .. ConcatenarDic(PontosTemp))
+
+        io.write('Forca: ')
+        local VForca = io.read('n');
+        local PlaceHolder = io.read()
+        PontosTemp["Forca"]= VForca + PontosTemp["Forca"]
+        print('Pontos distribuidos: '.. SomarTable(PontosTemp)-5, '\n')
+
+        io.write('Destreza: ')
+        local VDestreza = io.read('n');
+        local PlaceHolder = io.read()
+        PontosTemp["Destreza"]= VDestreza + PontosTemp["Destreza"]
+        print('Pontos distribuidos: '.. SomarTable(PontosTemp)-5, '\n')
+
+        io.write('Inteligencia: ')
+        local VInteligencia = io.read('n');
+        local PlaceHolder = io.read()
+        PontosTemp["Inteligencia"]= VInteligencia + PontosTemp["Inteligencia"]
+        print('Pontos distribuidos: '.. SomarTable(PontosTemp)-5, '\n')
+
+        io.write('Resistencia: ')
+        local VResistencia = io.read('n');
+        local PlaceHolder = io.read()
+        PontosTemp["Resistencia"]= VResistencia + PontosTemp["Resistencia"]
+        print('Pontos distribuidos: '.. SomarTable(PontosTemp)-5, '\n')
+
+        io.write('Carisma: ')
+        local VCarisma = io.read('n');
+        local PlaceHolder = io.read()
+        PontosTemp["Carisma"]= VCarisma + PontosTemp["Carisma"]
+        print('Pontos distribuidos: '.. SomarTable(PontosTemp)-5, '\n')
+
+        if SomarTable(PontosTemp) == 15 then 
+            print('Pontos distribuidos com sucesso\n' .. ConcatenarDic(PontosTemp))
+        else 
+            print(Erros[1], ' \n'); DistruibuicaoDePontos() 
+        end
+
+        Personagem['Atributos']["Forca"]= PontosTemp["Forca"]
+        Personagem['Atributos']["Destreza"]= PontosTemp["VDestreza"]
+        Personagem['Atributos']["Inteligencia"]= PontosTemp["VInteligencia"] 
+        Personagem['Atributos']["Resistencia"]= PontosTemp["VResistencia"]
+        Personagem['Atributos']["Carisma"]= PontosTemp["Carisma"]
 end
+
+DistruibuicaoDePontos()
+--? Distribuição de pontos define a classe do personagem
+io.write("Classe: ");
+Personagem["Classe"] = io.read("l")
