@@ -14,9 +14,11 @@ local Personagem = {
         ["Carisma"] = 1
     }
 }
+
 local Erros = {
-    [1]= 'Por favor distribua 10 pontos no total'
+    [1] = 'Por favor distribua 10 pontos no total'
 }
+
 -- Criação de personagem
 
 print("Crie seu personagem:")
@@ -48,47 +50,24 @@ function ConcatenarDic(Table)
 end
 
 function DistruibuicaoDePontos()
-        local PontosTemp = {
-            ["Forca"] = 1,
-            ["Destreza"] = 1,
-            ["Inteligencia"] = 1,
-            ["Resistencia"] = 1,
-            ["Carisma"] = 1
-        }
-        local x= 15
+    local PontosTemp = {
+        ["Forca"] = 1,
+        ["Destreza"] = 1,
+        ["Inteligencia"] = 1,
+        ["Resistencia"] = 1,
+        ["Carisma"] = 1
+    }
 
-        print("Atributos totais:\n" .. ConcatenarDic(PontosTemp))
+    local x = 15
 
-        io.write('Forca: ')
-        local VForca = io.read('n');
-        local PlaceHolder = io.read()
-        PontosTemp["Forca"]= VForca + PontosTemp["Forca"]
-        print('Pontos para distribuir: '.. x-SomarTable(PontosTemp), '\n')
-
-        io.write('Destreza: ')
-        local VDestreza = io.read('n');
-        local PlaceHolder = io.read()
-        PontosTemp["Destreza"]= VDestreza + PontosTemp["Destreza"]
-        print('Pontos para distribuir: '.. x-SomarTable(PontosTemp), '\n')
-
-        io.write('Inteligencia: ')
-        local VInteligencia = io.read('n');
-        local PlaceHolder = io.read()
-        PontosTemp["Inteligencia"]= VInteligencia + PontosTemp["Inteligencia"]
-        print('Pontos para distribuir: '.. x-SomarTable(PontosTemp), '\n')
-
-        io.write('Resistencia: ')
-        local VResistencia = io.read('n');
-        local PlaceHolder = io.read()
-        PontosTemp["Resistencia"]= VResistencia + PontosTemp["Resistencia"]
-        print('Pontos para distribuir: '.. x-SomarTable(PontosTemp), '\n')
-
-        io.write('Carisma: ')
-        local VCarisma = io.read('n');
-        local PlaceHolder = io.read()
-        PontosTemp["Carisma"]= VCarisma + PontosTemp["Carisma"]
-        print('Pontos para distribuir: '.. x-SomarTable(PontosTemp), '\n')
-
+    print("Atributos totais:\n" .. ConcatenarDic(PontosTemp))
+    
+    for n, v in pairs(Personagem["Atributos"]) do
+        print('Quantos pontos quer investir em ' .. n .. '?')
+        PontosTemp[n] = io.read('n')+PontosTemp[n]; local PlaceHolder = io.read()
+    end
+    
+    --! Parte usavel
         if SomarTable(PontosTemp) == 15 then 
             print('Pontos distribuidos com sucesso\n' .. ConcatenarDic(PontosTemp))
         else 
@@ -103,6 +82,7 @@ function DistruibuicaoDePontos()
         Personagem['Atributos']["Inteligencia"]= PontosTemp["VInteligencia"] 
         Personagem['Atributos']["Resistencia"]= PontosTemp["VResistencia"]
         Personagem['Atributos']["Carisma"]= PontosTemp["Carisma"]
+    
 end
 
 DistruibuicaoDePontos()
