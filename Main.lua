@@ -61,28 +61,27 @@ function DistruibuicaoDePontos()
     local x = 15
 
     print("Atributos totais:\n" .. ConcatenarDic(PontosTemp))
-    
+
     for n, v in pairs(Personagem["Atributos"]) do
         print('Quantos pontos quer investir em ' .. n .. '?')
-        PontosTemp[n] = io.read('n')+PontosTemp[n]; local PlaceHolder = io.read()
+        PontosTemp[n] = io.read('n') + PontosTemp[n]; local PlaceHolder = io.read()
     end
-    
-    --! Parte usavel
-        if SomarTable(PontosTemp) == 15 then 
-            print('Pontos distribuidos com sucesso\n' .. ConcatenarDic(PontosTemp))
-        else 
-            print(Erros[1], ' \n'); DistruibuicaoDePontos() 
-        end
 
-        print('Deseja redistribuir os pontos? [Sim] [Nao]'); local redistribuicao = string.lower(io.read('l'))
-        if redistribuicao == 'sim' then DistruibuicaoDePontos() end
+    if SomarTable(PontosTemp) == 15 then
+        print('Pontos distribuidos com sucesso\n' .. ConcatenarDic(PontosTemp))
+    else
+        print(Erros[1], ' \n');
+        DistruibuicaoDePontos()
+    end
 
-        Personagem['Atributos']["Forca"]= PontosTemp["Forca"]
-        Personagem['Atributos']["Destreza"]= PontosTemp["VDestreza"]
-        Personagem['Atributos']["Inteligencia"]= PontosTemp["VInteligencia"] 
-        Personagem['Atributos']["Resistencia"]= PontosTemp["VResistencia"]
-        Personagem['Atributos']["Carisma"]= PontosTemp["Carisma"]
-    
+    print('Deseja redistribuir os pontos? [Sim] [Nao]');
+    local redistribuicao = string.lower(io.read('l'))
+    if redistribuicao == 'sim' then DistruibuicaoDePontos() end
+
+    for n, v in pairs(Personagem["Atributos"]) do
+        Personagem["Atributos"][n] = PontosTemp[n] 
+    end
+
 end
 
 DistruibuicaoDePontos()
