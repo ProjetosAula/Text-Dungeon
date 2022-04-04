@@ -31,5 +31,5 @@ O projeto será feito dividindo grupos para cada sistema, cada pessoa irá utili
 
 [1]: https://github.com/ProjetosAula/Text-Dungeon/tree/Interacoes "Branch"
 [2]: https://github.com/ProjetosAula/Text-Dungeon/tree/Combate "Branch"
-[3]: https://github.com/ProjetosAula/Text-Dungeon/tree/Interacoes "Branch"
+[3]: https://github.com/ProjetosAula/Text-Dungeon/tree/Inventario "Branch"
 [4]: https://github.com/ProjetosAula/Text-Dungeon/tree/Level "Branch"
