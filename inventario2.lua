@@ -1,0 +1,5 @@
+local Inventario = require("Modules/Inventario")
+local JSON = require("json")
+local PlayerArquivo = io.open("Data/Player.json", "r")
+local Player = JSON.decode(PlayerArquivo:read("*all"))
+print(Inventario.Mostrar(Player))

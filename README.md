@@ -1,9 +1,35 @@
-# Text-Dungeon
-Projeto compartilhado com alunos para uma aventura RPG baseada em texto feita em LUA
-<<<<<<< HEAD
-# Vai se fuder luis luxico !!!!!
-=======
+# Text Dungeon
+Text Dungeon é um projeto simples de um Text-based RPG, programado usando a linguagem de programação LUA. Feito para treinar várias técnicas de Arquitetura de Software, utilização de GIT, Librarys/modules do luarocks e trabalho em grupo.
 
-# Esse é um teste
-Isso é apenas um exemplo de modificação para a branch principal
->>>>>>> e83822d0e7ce7d2019cfa94bd2581aee31d3c0d7
+- Alunos
+  - Math
+  - Jumuel
+  - Mugi
+  - Rival
+  - Fuzzy
+  - Obiits
+  - Gepedo
+  - Durudz
+  - Haven 
+  - Hatoushi
+
+---
+
+## Divisão de grupos
+O projeto será feito dividindo grupos para cada sistema, cada pessoa irá utilizar forks para fazer as alterações e mandar Pull Requests para a branch do seu grupo.
+
+| Grupo 1 | Grupo 2 | Grupo 3 | Grupo 4  |
+| ------- | ------- | ------- | -------  |
+| Math    | Durudz  | Obiits  | Jumuel   |
+| Fuzzy   | Mugi    | Gepedo  | Hatoushi |
+|         | Haven   |         | Rival    |
+
+- **Grupo 1:** [Interações][1]
+- **Grupo 2:** [Combate][2]
+- **Grupo 3:** [Inventário][3]
+- **Grupo 4:** [Level][4]
+
+[1]: https://github.com/ProjetosAula/Text-Dungeon/tree/Interacoes "Branch"
+[2]: https://github.com/ProjetosAula/Text-Dungeon/tree/Combate "Branch"
+[3]: https://github.com/ProjetosAula/Text-Dungeon/tree/Interacoes "Branch"
+[4]: https://github.com/ProjetosAula/Text-Dungeon/tree/Level "Branch"
