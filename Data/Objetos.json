@@ -1,0 +1,19 @@
+{
+  "espada": {
+    "descricao": "Uma espada, coletavel, dano 6 defesa 2",
+    "atributos": {
+      "dano": 6,
+      "defesa": 2
+    },
+    "coletavel": true
+  },
+
+  "mesa": {
+    "descricao": "Uma mesa de madeira definitivamente nao coletavel",
+    "atributos": {
+      "dano": 0,
+      "defesa": 0
+    },
+    "coletavel": false
+  }
+}
