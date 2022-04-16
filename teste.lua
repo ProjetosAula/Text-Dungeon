@@ -1,26 +1,31 @@
 local Interacao = require('Modules/Interacao')
 
 local Sala_Das_Prima = {
-    norte = {
-        Tipo = "porta",
-        Aberto = true
-    },
 
-    sul = {
-        Tipo = "parede",
-        Aberto = false
-    },
+    tipo = "sala",
+    tamanho = "medio",
+    lados = {
 
-    leste = {
-        Tipo = "porta",
-        Aberto = true
-    },
+        norte = {
+            Tipo = "porta",
+            Aberto = true
+        },
 
-    oeste = {
-        Tipo = "porta",
-        Aberto = false
-    },
+        sul = {
+            Tipo = "parede",
+            Aberto = false
+        },
 
+        leste = {
+            Tipo = "porta",
+            Aberto = true
+        },
+
+        oeste = {
+            Tipo = "porta",
+            Aberto = false
+        },
+    },
     objetos = {
         mesa = {
             lugar = "sala",
@@ -29,7 +34,12 @@ local Sala_Das_Prima = {
 
         espada = {
             lugar = "mesa",
-            posicao = "meio",
+            posicao = "canto",
+        },
+
+        martelo = {
+            lugar = "vaso",
+            posicao = "quina",
         }
     }
 }
@@ -39,3 +49,4 @@ local Sala_Das_Prima = {
 print(Interacao.InteracaoJogador('x espada', Sala_Das_Prima))
 print(Interacao.InteracaoJogador('x mesa', Sala_Das_Prima))
 print(Interacao.InteracaoJogador('x banana', Sala_Das_Prima))
+print(Interacao.InteracaoJogador("l", Sala_Das_Prima))
