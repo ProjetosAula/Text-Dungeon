@@ -24,9 +24,12 @@ end
 
 function Olhar(Resto, Ambiente)
     local Entradas = {}
+
     for Nome, Valor in pairs(Ambiente.lados) do
-        if Valor.Aberto == true then
-            table.insert(Entradas, Nome)
+        if Valor.Estado ~= nil then
+            table.insert(Entradas, 'Voce ve uma ' .. Valor.Tipo .. ' ao ' .. Nome .. ' ' .. Valor.Estado .. '.')
+        else 
+            table.insert(Entradas, 'Voce ve uma ' .. Valor.Tipo .. ' ao ' .. Nome .. '.')
         end
     end
 
@@ -36,7 +39,7 @@ function Olhar(Resto, Ambiente)
         TextoObjetos = TextoObjetos .. "Voce ve " .. Pronomes(Nome, "um") .. " " .. Nome .. " " .. Pronomes(Valor.posicao, "no") .. " " .. Valor.posicao .. " " .. Pronomes(Valor.lugar, "do") .. " " .. Valor.lugar .. ".\n"
     end
 
-    return "Voce esta " .. Pronomes(Ambiente.tipo, "num") .. " " .. Ambiente.tipo .. ", de tamanho " .. Ambiente.tamanho .. ".\nVoce tem entradas ao " .. table.concat(Entradas, "; ") .. ".\n" .. TextoObjetos
+    return "Voce esta " .. Pronomes(Ambiente.tipo, "num") .. " " .. Ambiente.tipo .. ", de tamanho " .. Ambiente.tamanho .. ".\n" .. table.concat(Entradas, "\n") .. "\n" .. TextoObjetos
 end
 
 function Examinar(Resto, Ambiente)
@@ -53,7 +56,7 @@ local InteracoesValidas = {
     ['examinar'] = Examinar,
     ['x'] = Examinar,
     ['olhar'] = Olhar,
-    ['l'] = Olhar
+    ['l'] = Olhar,
 }
 
 function Interacao.InteracaoJogador(String, Ambiente)
