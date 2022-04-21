@@ -5,25 +5,29 @@ local Sala_Das_Prima = {
     tipo = "sala",
     tamanho = "medio",
     lados = {
-
+        
         norte = {
             Tipo = "porta",
-            Aberto = true
+            Aberto = true,
+            Estado = 'que esta aberta'
         },
 
         sul = {
             Tipo = "parede",
-            Aberto = false
+            Aberto = false,
+            Estado = nil
         },
 
         leste = {
             Tipo = "porta",
-            Aberto = true
+            Aberto = true,
+            Estado = 'que esta aberta'
         },
 
         oeste = {
             Tipo = "porta",
-            Aberto = false
+            Aberto = false,
+            Estado = 'que esta trancada' 
         },
     },
     objetos = {
